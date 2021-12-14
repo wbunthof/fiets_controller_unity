@@ -35,8 +35,9 @@ class button:
                 self._statemachine.setState('BTN_pressed')
 
         elif self._statemachine.getState() == 'BTN_pressed':
-            self._keyboard.send(self._key_to_press)
+            self._keyboard.press(self._key_to_press)
             if self._btn.value:
+                self._keyboard.release(self._key_to_press)
                 self._led.value = False
                 print('BTN1 released')
                 self._statemachine.setState('BTN_released')

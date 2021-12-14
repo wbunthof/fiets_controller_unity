@@ -2,7 +2,7 @@ from busio import I2C
 from microcontroller import pin
 
 # Import the SSD1306 module.
-import adafruit_ssd1306 as adafruit_ssd1306
+from lib2 import adafruit_ssd1306 as adafruit_ssd1306
 
 
 class Display:
@@ -11,8 +11,8 @@ class Display:
     # pylint: disable-msg=too-many-arguments
     def __init__(
             self,
-            sda=pin.GPIO4,
-            scl=pin.GPIO5,
+            sda: pin,
+            scl: pin,
             hsize=128,
             vsize=64
     ):
@@ -24,7 +24,7 @@ class Display:
         self.display.show()
         self.display.contrast(2)
 
-    def speed(self, speed: int) -> None:
+    def speed(self, speed: float) -> None:
         """Set the speed on the display"""
         self.display.fill(0)
         self.display.text(str(speed), 30, 0, 1, size=6)

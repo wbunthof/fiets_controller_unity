@@ -19,7 +19,7 @@ from adafruit_bus_device import i2c_device, spi_device
 try:
     import framebuf
 except ImportError:
-    import adafruit_framebuf as framebuf
+    from lib2 import adafruit_framebuf as framebuf
 
 try:
     # Used only for typing
